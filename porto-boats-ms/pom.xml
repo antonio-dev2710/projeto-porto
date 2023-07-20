@@ -8,13 +8,14 @@
 		<version>3.1.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.controleportuario</groupId>
-	<artifactId>controleportuario</artifactId>
+	
+	<groupId>com.portoproject</groupId>
+	<artifactId>porto-boats-ms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>controleportuario</name>
-	<description>Demo project for Spring Boot</description>
+	<name>porto-boats-ms</name>
+	<description>Micro serviço para registro de barco e pessoas</description>
 	<properties>
-		<java.version>20</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -26,12 +27,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>

@@ -21,6 +21,7 @@ public class Pessoa {
     private String tipo;
     private String email;
     private String telefone;
+    private String cpf;
     private boolean ativo=true;
     
     

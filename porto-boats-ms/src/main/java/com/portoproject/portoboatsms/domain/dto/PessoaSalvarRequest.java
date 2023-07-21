@@ -18,4 +18,5 @@ public class PessoaSalvarRequest {
 	    private String tipo;
 	    private String email;
 	    private String telefone;
+		private String cpf;
 }

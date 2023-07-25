@@ -2,7 +2,9 @@ package com.portoproject.portoboatsms.domain.services;
 
 import java.util.List;
 
+import com.portoproject.portoboatsms.domain.dto.PessoaObterResponse;
 import com.portoproject.portoboatsms.domain.dto.PessoaSalvarRequest;
+import com.portoproject.portoboatsms.domain.repository.PessoaRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,16 +16,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //@ExtendWith(value = SpringExtension.class)
 public class PessoaDomainServiceTest {
 	private PessoaDomainService pessoaDomainService;
-	PessoaSalvarRequest pessoaSalvarRequest;
+	private PessoaSalvarRequest pessoaSalvarRequest;
+	private PessoaSalvarRequest pessoaSalva;
+
+
 	
 	@BeforeEach
 	void deveEstabelecerAntesDeCadaTeste(){
+		//espero que aconteça isso
 		pessoaSalvarRequest = new PessoaSalvarRequest();
 		pessoaSalvarRequest.setNome("Carlos Pereira");
 		pessoaSalvarRequest.setEmail("carloso.pereira@hotmail");
 		pessoaSalvarRequest.setTipo("Gerente");
-		pessoaSalvarRequest.setTelefone("(74)93700-7734");
+		pessoaSalvarRequest.setTelefone("7493700-7734");
 		pessoaSalvarRequest.setCpf("12507205750");
+		PessoaRepository pessoaRepository;
+
+		pessoaDomainService =new PessoaDomainService();
+
+		pessoaSalva=pessoaDomainService.salvar(pessoaSalvarRequest);
 
 	}
 	@Test
@@ -32,7 +43,7 @@ public class PessoaDomainServiceTest {
 		//quandoPessoaDomainServiceSalvar();
 		//deveRetornarUmaPessoaObterResponse();
 
-		assertEquals(pessoaSalvarRequest, pessoaDomainService);
+		assertEquals(pessoaSalvarRequest, pessoaSalva);
 	
 		
 	}
@@ -44,7 +55,7 @@ public class PessoaDomainServiceTest {
 		//deveRetornarUmaPessoaObterResponse();
 		//criar o bojeto
 
-		assertEquals(pessoaSalvarRequest.getCpf().length(), pessoaDomainService);
+		assertEquals(pessoaSalvarRequest.getCpf().length(), pessoaSalva.getCpf().length());
 	
 		
 	}
@@ -54,7 +65,7 @@ public class PessoaDomainServiceTest {
 		//dadoUmaPessoaSalvarResquestValido();
 		//quandoPessoaDomainServiceSalvar();
 		//deveRetornarUmaPessoaObterResponse();
-		assertEquals(pessoaSalvarRequest.getTelefone().length(), pessoaDomainService);
+		assertEquals(pessoaSalvarRequest.getTelefone().length(), pessoaSalva.getTelefone().length());
 	
 		
 	}
@@ -65,7 +76,7 @@ public class PessoaDomainServiceTest {
 		//quandoPessoaDomainServiceSalvar();
 		//deveRetornarUmaPessoaObterResponse();
 		PessoaSalvarRequest pessoaSalvarRequest = new PessoaSalvarRequest();
-		//criar o bojeto
+
 	
 		
 	}

@@ -15,7 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class PessoaSalvarRequest {
 
-    private String id= UUID.randomUUID().toString();
+
     private String nome;
     private String tipo;
     private String email;

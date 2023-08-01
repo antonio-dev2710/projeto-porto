@@ -6,7 +6,7 @@ import com.portoproject.portoboatsms.domain.entities.Pessoa;
 import org.springframework.stereotype.Component;
 
 public class PessoaMapper {
-
+/*
     public PessoaSalvarRequest toDTO(Pessoa pessoa) {
         if (pessoa == null) {
             return null;
@@ -42,5 +42,7 @@ public class PessoaMapper {
 
         return pessoa;
     }
+
+ */
 }
 

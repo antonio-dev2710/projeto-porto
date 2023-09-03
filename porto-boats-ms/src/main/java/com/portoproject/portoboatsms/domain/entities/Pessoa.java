@@ -16,16 +16,13 @@ import lombok.NoArgsConstructor;
 public class Pessoa {
 
     @Builder.Default
-    private String id=UUID.randomUUID().toString();
+    private String id = UUID.randomUUID().toString();
     private String nome;
     private String tipo;
     private String email;
     private String telefone;
-    private boolean ativo=true;
-    
-    
-
-
+    private String cpf;
+    private boolean ativo = true;
 
 
 }

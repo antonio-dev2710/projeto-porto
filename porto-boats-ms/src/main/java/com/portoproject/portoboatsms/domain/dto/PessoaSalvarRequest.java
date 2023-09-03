@@ -6,16 +6,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
 
 
 @Data
-@Builder
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 public class PessoaSalvarRequest {
 
-	    private String nome;
-	    private String tipo;
-	    private String email;
-	    private String telefone;
+
+    private String nome;
+    private String tipo;
+    private String email;
+    private String telefone;
+    private String cpf;
+
+
 }

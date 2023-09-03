@@ -5,13 +5,12 @@ import java.util.List;
 import com.portoproject.portoboatsms.domain.dto.PessoaAtualizarRequest;
 import com.portoproject.portoboatsms.domain.dto.PessoaObterResponse;
 import com.portoproject.portoboatsms.domain.dto.PessoaSalvarRequest;
-import com.portoproject.portoboatsms.domain.entities.Pessoa;
 
 public interface PessoaService {
 
-	List<PessoaObterResponse> obter();
+	List<PessoaSalvarRequest> obterTodasAsPeSssoas();
 
-	PessoaObterResponse salvar(PessoaSalvarRequest pessoaSalvarRequest);
+	PessoaObterResponse salvar(PessoaSalvarRequest PessoaObterResponse);
 
 	PessoaObterResponse obterPorNome(String nome);
 

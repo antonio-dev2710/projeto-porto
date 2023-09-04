@@ -1,10 +1,12 @@
 package com.portoproject.portoboatsms.domain.dto;
 
 
+import com.portoproject.portoboatsms.domain.entities.Pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import java.util.UUID;
 
@@ -21,6 +23,11 @@ public class PessoaSalvarRequest {
     private String email;
     private String telefone;
     private String cpf;
+    public Pessoa toPessoa(){
+        Pessoa pessoa = new Pessoa();
+        BeanUtils.copyProperties(this,pessoa);
+        return pessoa;
+    }
 
 
 }

@@ -17,4 +17,15 @@ public class PessoaMocks {
     public static Pessoa validPessoa(){
         return validPessoaSalvarRequest().toPessoa();
     }
+
+    public static PessoaSalvarRequest InvalidPessoaSalvarRequestCPFInvalidoOuTelefoneInvalido(){
+        return PessoaSalvarRequest.builder()
+                .nome("Carlos Pereira")
+                .cpf("125072")
+                .email("carloso.pereira@hotmail")
+                .telefone("7493700-7734")
+                .tipo("Gerente")
+                .build();
+
+    }
 }

@@ -38,7 +38,6 @@ public class PessoaDomainService implements PessoaService {
 
         try {
 
-
             if (pessoaSalvarRequest.getTelefone().length() != numComprimentoTelefone
                     || pessoaSalvarRequest.getCpf().length() != numComprimentoCpf) {
 
@@ -56,12 +55,11 @@ public class PessoaDomainService implements PessoaService {
             Pessoa pessoaSalva = pessoaRepository.save(pessoa);
 
             //converter entidade para dto de response
-
             return PessoaObterResponse.from(pessoaSalva);
+
         } catch (TelefoneInvalidoOuCpfInvalidoExcpetion | CpfJaCadastradoException ex) {
            throw  ex;
         } catch (Exception ex) {
-            //TODO: TEM QUE VER COMO FAZ ESSA CONDIÇÃO
             throw new InternalServerErrorExcpetion();
         }
 

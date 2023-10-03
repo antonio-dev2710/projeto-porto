@@ -1,4 +1,4 @@
-# projeto-porto :motor_boat:
+# projeto-porto :motor_boat:  🚧
 **O Projeto Porto é uma aplicação que visa o gerenciamento de operações de embarcações por meio de um sistema portuário. Este projeto inclui as seguintes funcionalidades:** 
 
 * CRUD: Desenvolvemos um conjunto completo de funcionalidades CRUD (Create, Read, Update, Delete) para manipular os dados das embarcações de forma eficiente.

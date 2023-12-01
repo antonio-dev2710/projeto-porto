@@ -36,30 +36,6 @@ public class PessoaDomainServiceTest {
     private Pessoa pessoa;
     PessoaObterResponse pessoaObterResponse;
 
-    /*
-    @BeforeEach
-    void deveEstabelecerAntesDeCadaTeste(){
-        //espero que aconteça isso
-        pessoaSalvarRequest = new PessoaSalvarRequest();
-        pessoaSalvarRequest.setNome("Carlos Pereira");
-        pessoaSalvarRequest.setEmail("carloso.pereira@hotmail");
-        pessoaSalvarRequest.setTipo("Gerente");
-        pessoaSalvarRequest.setTelefone("7493700-7734");
-        pessoaSalvarRequest.setCpf("12507205750");
-        PessoaRepository pessoaRepository=null;
-        PessoaMapper pessoaMapper = new PessoaMapper();
-
-
-        //transforma o dto teste em entidade
-
-        pessoaDomainService =new PessoaDomainService(pessoaMapper,pessoaRepository);
-
-        pessoaSalva=pessoaDomainService.salvar(pessoaSalvarRequest);
-
-
-    }
-
-     */
     @Test
     void deveRetornarUmaPessoaObterResponseQuandoReceberUmaPessoaSalvarResquestValido() {
         dadoUmaPessoaSalvarResquestValido();
@@ -71,16 +47,37 @@ public class PessoaDomainServiceTest {
 
     }
 
-    private void entaoEsperaQueOsAtributosSejamIguais() {
-        assertEquals(pessoaSalvarRequest.getNome(), pessoaObterResponse.getNome());
-        assertEquals(pessoaSalvarRequest.getTipo(), pessoaObterResponse.getTipo());
-        assertEquals(pessoaSalvarRequest.getCpf(), pessoaObterResponse.getCpf());
-        assertEquals(pessoaSalvarRequest.getEmail(), pessoaObterResponse.getEmail());
-        assertEquals(pessoaSalvarRequest.getTelefone(), pessoaObterResponse.getTelefone());
+    @Test
+    void deveSoltarUmTelefoneInvalidoOuCpfExceptionQuandoReceberTelefoneInvalidoOuCpfInvalido() {
+        //dadoUmaPessoaSalvarResquestValido();
+        //quandoPessoaDomainServiceSalvar();
+        //deveRetornarUmaExeptionCpfInvalidoOuTelefoneInvalido();
+        //assertEquals(pessoaSalvarRequest.getTelefone().length(), pessoaSalva.getTelefone().length());
+
+        dadoUmaPessoaSalvarResquestComCpfOuTelefoneInvalido();
+        quandoServiceSalvarDeveSoltarUmaException();
+
     }
 
-    private void quandoServiceSalvarComSucesso() {
-        pessoaObterResponse = pessoaDomainService.salvar(pessoaSalvarRequest);
+    @Test
+    void deveSoltarUmCpfJaCadastradoExceptionQuandoTentarSalvarUmCpfQueJaTenhaCadastrado() {
+
+        dadoUmaPessoaSalvarRequestMesmoCpf();
+        dadoQueRepositoryExistByCpfRetornaTrue();
+        quandoPessoaDomainServiceSalvarDeveRetornarUmaExecptionCpfJaCadastrado();
+    }
+
+    @Test
+    void deveSoltarUmInternalServerErrorExeptionQuandoFalharAComunicacaoComODb() {
+
+        dadoUmaPessoaSalvarRequestCpfExistente();
+        dadoQueRepositoryExistByCpfRetornaRuntimeException();
+        quandoPessoaDomainServiceSalvarDeveRetornarUmaInternalServerErrorExcpetion();
+    }
+    // GIVEN/DADO METHODS
+
+    private void dadoUmaPessoaSalvarResquestComCpfOuTelefoneInvalido() {
+        pessoaSalvarRequest = PessoaMocks.InvalidPessoaSalvarRequestCPFInvalidoOuTelefoneInvalido();
 
     }
 
@@ -97,47 +94,6 @@ public class PessoaDomainServiceTest {
         pessoaSalvarRequest = PessoaMocks.validPessoaSalvarRequest();
 
     }
-
-    @Test
-    void deveSoltarUmTelefoneInvalidoOuCpfExceptionQuandoReceberTelefoneInvalidoOuCpfInvalido() {
-        //dadoUmaPessoaSalvarResquestValido();
-        //quandoPessoaDomainServiceSalvar();
-        //deveRetornarUmaExeptionCpfInvalidoOuTelefoneInvalido();
-        //assertEquals(pessoaSalvarRequest.getTelefone().length(), pessoaSalva.getTelefone().length());
-
-        dadoUmaPessoaSalvarResquestComCpfOuTelefoneInvalido();
-        quandoServiceSalvarDeveSoltarUmaException();
-
-    }
-
-
-    private void quandoServiceSalvarDeveSoltarUmaException() {
-        Assertions.assertThrows(TelefoneInvalidoOuCpfInvalidoExcpetion.class, () ->
-                pessoaDomainService.salvar(pessoaSalvarRequest)
-        );
-
-
-    }
-
-    private void dadoUmaPessoaSalvarResquestComCpfOuTelefoneInvalido() {
-        pessoaSalvarRequest = PessoaMocks.InvalidPessoaSalvarRequestCPFInvalidoOuTelefoneInvalido();
-
-    }
-
-    @Test
-    void deveSoltarUmCpfJaCadastradoExceptionQuandoTentarSalvarUmCpfQueJaTenhaCadastrado() {
-
-        dadoUmaPessoaSalvarRequestMesmoCpf();
-        dadoQueRepositoryExistByCpfRetornaTrue();
-        quandoPessoaDomainServiceSalvarDeveRetornarUmaExecptionCpfJaCadastrado();
-    }
-
-    private void quandoPessoaDomainServiceSalvarDeveRetornarUmaExecptionCpfJaCadastrado() {
-        Assertions.assertThrows(CpfJaCadastradoException.class, () ->
-                pessoaDomainService.salvar(pessoaSalvarRequest)
-        );
-    }
-
     private void dadoQueRepositoryExistByCpfRetornaTrue() {
         when(pessoaRepository.existsByCpf(ArgumentMatchers.any())).thenReturn(true);
 
@@ -147,26 +103,6 @@ public class PessoaDomainServiceTest {
         pessoaSalvarRequest = PessoaMocks.validPessoaSalvarRequest();
     }
 
-
-
-    @Test
-    void deveSoltarUmInternalServerErrorExeptionQuandoFalharAComunicacaoComODb() {
-
-        dadoUmaPessoaSalvarRequestCpfExistente();
-        dadoQueRepositoryExistByCpfRetornaRuntimeException();
-        quandoPessoaDomainServiceSalvarDeveRetornarUmaInternalServerErrorExcpetion();
-
-
-
-
-
-
-    }
-
-    private void quandoPessoaDomainServiceSalvarDeveRetornarUmaInternalServerErrorExcpetion() {
-        Assertions.assertThrows(InternalServerErrorExcpetion.class, () ->
-                pessoaDomainService.salvar(pessoaSalvarRequest));
-    }
     private void dadoQueRepositoryExistByCpfRetornaRuntimeException() {
         when(pessoaRepository.existsByCpf(any())).thenThrow(RuntimeException.class);
 
@@ -174,6 +110,32 @@ public class PessoaDomainServiceTest {
     private void dadoUmaPessoaSalvarRequestCpfExistente() {
         pessoaSalvarRequest=PessoaMocks.validPessoaSalvarRequest();
     }
+    // WHEN/QUANDO METHODS
+    private void quandoServiceSalvarComSucesso() {
+        pessoaObterResponse = pessoaDomainService.salvar(pessoaSalvarRequest);
+    }
 
+    private void quandoServiceSalvarDeveSoltarUmaException() {
+        Assertions.assertThrows(TelefoneInvalidoOuCpfInvalidoExcpetion.class, () ->
+                pessoaDomainService.salvar(pessoaSalvarRequest)
+        );
+    }
+    private void quandoPessoaDomainServiceSalvarDeveRetornarUmaExecptionCpfJaCadastrado() {
+        Assertions.assertThrows(CpfJaCadastradoException.class, () ->
+                pessoaDomainService.salvar(pessoaSalvarRequest)
+        );
+    }
+    private void quandoPessoaDomainServiceSalvarDeveRetornarUmaInternalServerErrorExcpetion() {
+        Assertions.assertThrows(InternalServerErrorExcpetion.class, () ->
+                pessoaDomainService.salvar(pessoaSalvarRequest));
+    }
+    // THEN/ENTAO METHODS
 
+    private void entaoEsperaQueOsAtributosSejamIguais() {
+        assertEquals(pessoaSalvarRequest.getNome(), pessoaObterResponse.getNome());
+        assertEquals(pessoaSalvarRequest.getTipo(), pessoaObterResponse.getTipo());
+        assertEquals(pessoaSalvarRequest.getCpf(), pessoaObterResponse.getCpf());
+        assertEquals(pessoaSalvarRequest.getEmail(), pessoaObterResponse.getEmail());
+        assertEquals(pessoaSalvarRequest.getTelefone(), pessoaObterResponse.getTelefone());
+    }
 }

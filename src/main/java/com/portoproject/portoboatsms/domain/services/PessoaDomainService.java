@@ -63,8 +63,6 @@ public class PessoaDomainService implements PessoaService {
             throw new InternalServerErrorExcpetion();
         }
 
-        //return pessoaMapper.toDTO(pessoaRepository.save(pessoaMapper.toEntityPessoa(pessoaSalvarRequest)));
-
     }
 
 

@@ -5,15 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8689e8d-ee7e-4374-8cc9-351d69e8e268" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/entities/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/entities/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/controllers/PessoaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/controllers/PessoaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/dto/PessoaObterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/dto/PessoaObterResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/PessoaDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/PessoaDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/interfaces/PessoaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/interfaces/PessoaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,7 +44,7 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Porto-back-end">
+  <component name="RunManager" selected="JUnit.PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco">
     <configuration name="Porto-back-end" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Java/jdk-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -60,10 +69,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="porto-boats-ms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.portoproject.portoboatsms.domain.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.portoproject.portoboatsms.domain.services" />
+      <option name="MAIN_CLASS_NAME" value="com.portoproject.portoboatsms.domain.services.PessoaDomainServiceTest" />
+      <option name="METHOD_NAME" value="deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Porto-back-end" />
       <item itemvalue="JUnit.PessoaDomainServiceTest" />
+      <item itemvalue="JUnit.PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -75,5 +106,16 @@
       <updated>1701731984644</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

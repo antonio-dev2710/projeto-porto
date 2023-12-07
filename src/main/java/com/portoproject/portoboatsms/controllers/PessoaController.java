@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.*;
 public class PessoaController {
 
     PessoaDomainService pessoaDomainService;
+
     public PessoaController(PessoaDomainService pessoaDomainService) {
-        this.pessoaDomainService=pessoaDomainService;
+        this.pessoaDomainService = pessoaDomainService;
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public PessoaObterResponse createPessoa(@RequestBody PessoaSalvarRequest pessoaSalvarRequest){
+    public PessoaObterResponse createPessoa(@RequestBody PessoaSalvarRequest pessoaSalvarRequest) {
         return pessoaDomainService.salvar(pessoaSalvarRequest);
     }
 }

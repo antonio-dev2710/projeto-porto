@@ -8,7 +8,7 @@ import com.portoproject.portoboatsms.domain.dto.PessoaSalvarRequest;
 
 public interface PessoaService {
 
-	List<PessoaSalvarRequest> obterTodasAsPeSssoas();
+	List<PessoaObterResponse> obterTodasAsPeSssoas();
 
 	PessoaObterResponse salvar(PessoaSalvarRequest PessoaObterResponse);
 

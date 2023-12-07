@@ -1,5 +1,6 @@
 package com.portoproject.portoboatsms.domain.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.portoproject.portoboatsms.domain.dto.PessoaAtualizarRequest;
@@ -20,17 +21,21 @@ public class PessoaDomainService implements PessoaService {
 
 
     private PessoaRepository pessoaRepository;
-    private PessoaMapper pessoaMapper;
 
-    public PessoaDomainService(PessoaMapper pessoaMapper, PessoaRepository pessoaRepository) {
+
+    public PessoaDomainService(PessoaRepository pessoaRepository) {
         this.pessoaRepository = pessoaRepository;
-        this.pessoaMapper = pessoaMapper;
+
     }
 
     @Override
-    public List<PessoaSalvarRequest> obterTodasAsPeSssoas() {
-        // TODO Auto-generated method stub
-        return null;
+    public List<PessoaObterResponse> obterTodasAsPeSssoas() {
+        //achar a lista
+
+
+        List <Pessoa> listPessoa = pessoaRepository.findAll();
+        //converter de entidade para Dto
+        return PessoaObterResponse.from(listPessoa);
     }
 
     @Override

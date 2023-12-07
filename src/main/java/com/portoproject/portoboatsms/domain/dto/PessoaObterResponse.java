@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -21,12 +23,27 @@ public class PessoaObterResponse {
     private String email;
     private String telefone;
     private String cpf;
+    private boolean ativo = true;
 
     public static PessoaObterResponse from(final Pessoa pessoa){
         PessoaObterResponse pessoaObterResponse=new PessoaObterResponse();
         BeanUtils.copyProperties(pessoa,pessoaObterResponse);
         return pessoaObterResponse;
     }
+
+    public static List<PessoaObterResponse> from(final List <Pessoa> pessoa){
+       List <PessoaObterResponse> pessoaObterResponseList=new ArrayList<>();
+        PessoaObterResponse pessoaObterResponse=new PessoaObterResponse();
+
+       for (Pessoa pessoas: pessoa) {
+           BeanUtils.copyProperties(pessoas, pessoaObterResponse);
+           pessoaObterResponseList.add(pessoaObterResponse);
+       }
+
+
+        return pessoaObterResponseList;
+    }
+
 
 
 }

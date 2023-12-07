@@ -17,9 +17,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 
 
@@ -32,7 +37,6 @@ public class PessoaDomainServiceTest {
     @InjectMocks
     private PessoaDomainService pessoaDomainService;
     private PessoaSalvarRequest pessoaSalvarRequest;
-    private PessoaSalvarRequest pessoaSalva;
     private Pessoa pessoa;
     PessoaObterResponse pessoaObterResponse;
 
@@ -49,10 +53,6 @@ public class PessoaDomainServiceTest {
 
     @Test
     void deveSoltarUmTelefoneInvalidoOuCpfExceptionQuandoReceberTelefoneInvalidoOuCpfInvalido() {
-        //dadoUmaPessoaSalvarResquestValido();
-        //quandoPessoaDomainServiceSalvar();
-        //deveRetornarUmaExeptionCpfInvalidoOuTelefoneInvalido();
-        //assertEquals(pessoaSalvarRequest.getTelefone().length(), pessoaSalva.getTelefone().length());
 
         dadoUmaPessoaSalvarResquestComCpfOuTelefoneInvalido();
         quandoServiceSalvarDeveSoltarUmaException();
@@ -137,5 +137,28 @@ public class PessoaDomainServiceTest {
         assertEquals(pessoaSalvarRequest.getCpf(), pessoaObterResponse.getCpf());
         assertEquals(pessoaSalvarRequest.getEmail(), pessoaObterResponse.getEmail());
         assertEquals(pessoaSalvarRequest.getTelefone(), pessoaObterResponse.getTelefone());
+    }
+
+    //
+    @Test
+    void deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco(){
+        //inst das entidades
+        PessoaObterResponse obterResponse = new PessoaObterResponse();
+        Pessoa pessoa = new Pessoa();
+        obterResponse.setId(pessoa.getId());
+
+        //add list
+        List<Pessoa> pessoaList = new ArrayList<>();
+        pessoaList.add(pessoa);
+        List<PessoaObterResponse> expectedPessoaObterResponseList = new ArrayList<>();
+        expectedPessoaObterResponseList.add(obterResponse);
+        when(pessoaRepository.findAll()).thenReturn(pessoaList);
+
+        //result service
+        List<PessoaObterResponse> actualPessoaObterResponseList = pessoaDomainService.obterTodasAsPeSssoas();
+        //comparação esperado com o atual
+        assertEquals(expectedPessoaObterResponseList, actualPessoaObterResponseList);
+
+
     }
 }

@@ -7,10 +7,7 @@
     <list default="true" id="a8689e8d-ee7e-4374-8cc9-351d69e8e268" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/controllers/PessoaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/controllers/PessoaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/dto/PessoaObterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/dto/PessoaObterResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/PessoaDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/PessoaDomainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/interfaces/PessoaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/interfaces/PessoaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java</url>
-          <line>148</line>
+          <line>150</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -31,8 +31,6 @@ public class PessoaDomainService implements PessoaService {
     @Override
     public List<PessoaObterResponse> obterTodasAsPeSssoas() {
         //achar a lista
-
-
         List <Pessoa> listPessoa = pessoaRepository.findAll();
         //converter de entidade para Dto
         return PessoaObterResponse.from(listPessoa);

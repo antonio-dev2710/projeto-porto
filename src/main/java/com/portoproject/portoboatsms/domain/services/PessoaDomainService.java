@@ -2,6 +2,7 @@ package com.portoproject.portoboatsms.domain.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.portoproject.portoboatsms.domain.dto.PessoaAtualizarRequest;
 import com.portoproject.portoboatsms.domain.dto.PessoaObterResponse;
@@ -10,6 +11,7 @@ import com.portoproject.portoboatsms.domain.dto.mapper.PessoaMapper;
 import com.portoproject.portoboatsms.domain.entities.Pessoa;
 import com.portoproject.portoboatsms.domain.exceptions.CpfJaCadastradoException;
 import com.portoproject.portoboatsms.domain.exceptions.InternalServerErrorExcpetion;
+import com.portoproject.portoboatsms.domain.exceptions.PessoaNaoEncontradaExcpetion;
 import com.portoproject.portoboatsms.domain.exceptions.TelefoneInvalidoOuCpfInvalidoExcpetion;
 import com.portoproject.portoboatsms.domain.repository.PessoaRepository;
 import com.portoproject.portoboatsms.domain.services.interfaces.PessoaService;
@@ -70,7 +72,7 @@ public class PessoaDomainService implements PessoaService {
 
 
     @Override
-    public PessoaObterResponse obterPorNome(String nome) {
+    public PessoaObterResponse obterPorId(String id) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -82,9 +84,14 @@ public class PessoaDomainService implements PessoaService {
     }
 
     @Override
-    public PessoaObterResponse deletar(String nome) {
-        // TODO Auto-generated method stub
-        return null;
+    public PessoaObterResponse deletar(String id) {
+        Pessoa pessoa = pessoaRepository.customAcharPorId(id);
+        if (pessoa.getId()==null){
+            throw new PessoaNaoEncontradaExcpetion();
+        }
+        pessoa.setAtivo(false);
+        //continuar ...
+        return PessoaObterResponse.from(pessoa);
     }
 
 }

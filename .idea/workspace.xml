@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8689e8d-ee7e-4374-8cc9-351d69e8e268" name="Changes" comment="">
+    <list default="true" id="a8689e8d-ee7e-4374-8cc9-351d69e8e268" name="Changes" comment="feat: implementação da controller findAll">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/exceptions/PessoaNaoEncontradaExcpetion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/controllers/PessoaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/controllers/PessoaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/repository/PessoaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/repository/PessoaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/PessoaDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/PessoaDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/interfaces/PessoaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/interfaces/PessoaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +43,11 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.portoproject.portoboatsms.domain.exceptions" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco">
     <configuration name="Porto-back-end" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Java/jdk-18" />
@@ -102,7 +109,20 @@
       <option name="presentableId" value="Default" />
       <updated>1701731984644</updated>
     </task>
+    <task id="LOCAL-00001" summary="feat: implementação da controller findAll">
+      <option name="closed" value="true" />
+      <created>1701961769659</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701961769660</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: implementação da controller findAll" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: implementação da controller findAll" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

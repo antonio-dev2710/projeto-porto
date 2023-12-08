@@ -12,10 +12,10 @@ public interface PessoaService {
 
 	PessoaObterResponse salvar(PessoaSalvarRequest PessoaObterResponse);
 
-	PessoaObterResponse obterPorNome(String nome);
+	PessoaObterResponse obterPorId(String id);
 
 	PessoaObterResponse atualizar(PessoaAtualizarRequest pessoaAtualizarRequest);
 
-	PessoaObterResponse deletar(String nome);
+	PessoaObterResponse deletar(String id);
 
 }

@@ -23,7 +23,7 @@ public class PessoaObterResponse {
     private String email;
     private String telefone;
     private String cpf;
-    private boolean ativo = true;
+    private boolean ativo;
 
     public static PessoaObterResponse from(final Pessoa pessoa){
         PessoaObterResponse pessoaObterResponse=new PessoaObterResponse();

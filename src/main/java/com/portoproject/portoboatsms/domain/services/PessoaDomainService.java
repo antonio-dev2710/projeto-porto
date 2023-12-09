@@ -2,6 +2,7 @@ package com.portoproject.portoboatsms.domain.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import com.portoproject.portoboatsms.domain.dto.PessoaAtualizarRequest;
@@ -74,7 +75,9 @@ public class PessoaDomainService implements PessoaService {
     @Override
     public PessoaObterResponse obterPorId(String id) {
         Pessoa pessoa = pessoaRepository.customAcharPorId(id);
-        if (pessoa.getId()==null){
+
+
+        if (Objects.isNull(pessoa)){
             throw new PessoaNaoEncontradaExcpetion();
         }
         return PessoaObterResponse.from(pessoa);
@@ -82,7 +85,7 @@ public class PessoaDomainService implements PessoaService {
 
     @Override
     public PessoaObterResponse atualizar(PessoaAtualizarRequest pessoaAtualizarRequest) {
-        // TODO: poderiamos deixaar em primeiro momento como update
+        // TODO: poderiamos deixaar em primeiro momento como put
         return null;
     }
 

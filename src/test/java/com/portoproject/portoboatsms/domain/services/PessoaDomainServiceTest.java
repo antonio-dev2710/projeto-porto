@@ -6,6 +6,7 @@ import com.portoproject.portoboatsms.domain.dto.mapper.PessoaMapper;
 import com.portoproject.portoboatsms.domain.entities.Pessoa;
 import com.portoproject.portoboatsms.domain.exceptions.CpfJaCadastradoException;
 import com.portoproject.portoboatsms.domain.exceptions.InternalServerErrorExcpetion;
+import com.portoproject.portoboatsms.domain.exceptions.PessoaNaoEncontradaExcpetion;
 import com.portoproject.portoboatsms.domain.exceptions.TelefoneInvalidoOuCpfInvalidoExcpetion;
 import com.portoproject.portoboatsms.domain.repository.PessoaRepository;
 import com.portoproject.portoboatsms.mocks.PessoaMocks;
@@ -142,10 +143,12 @@ public class PessoaDomainServiceTest {
     //
     @Test
     void deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco(){
+        //TODO: SEPARAR POR METODOS
         //inst das entidades
-        PessoaObterResponse obterResponse = new PessoaObterResponse();
         Pessoa pessoa = new Pessoa();
+        PessoaObterResponse obterResponse = new PessoaObterResponse();
         obterResponse.setId(pessoa.getId());
+        obterResponse.setAtivo(pessoa.isAtivo());
 
         //add list
         List<Pessoa> pessoaList = new ArrayList<>();
@@ -159,6 +162,28 @@ public class PessoaDomainServiceTest {
         //comparação esperado com o atual
         assertEquals(expectedPessoaObterResponseList, actualPessoaObterResponseList);
 
+    }
+    @Test
+    void deveRetornarUmaPessoaResponseQuandoObeterPorId(){
+        //TODO: SEPARAR POR METODOS
+        Pessoa pessoa = new Pessoa();
+        String id = pessoa.getId();
+        PessoaObterResponse expctedObterResponse = new PessoaObterResponse();
+        expctedObterResponse.setId(id);
+        expctedObterResponse.setAtivo(pessoa.isAtivo());
+
+        when(pessoaRepository.customAcharPorId(id)).thenReturn(pessoa);
+        PessoaObterResponse  actualPessoaObterResponse =  pessoaDomainService.obterPorId(id);
+
+        assertEquals(expctedObterResponse, actualPessoaObterResponse);
+
+    }
+    @Test
+    void deveRetornarRunTimeExceptionQuandoNaoObeterPorId(){
+        String id = null;
+        
+        Assertions.assertThrows(PessoaNaoEncontradaExcpetion.class, () ->
+                pessoaDomainService.obterPorId(id));
 
     }
 }

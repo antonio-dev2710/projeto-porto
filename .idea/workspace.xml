@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a8689e8d-ee7e-4374-8cc9-351d69e8e268" name="Changes" comment="feat: implementação da controller findAll">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/controllers/PessoaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/controllers/PessoaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/repository/PessoaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/repository/PessoaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/dto/PessoaObterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/dto/PessoaObterResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/PessoaDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/portoproject/portoboatsms/domain/services/PessoaDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
       <recent name="com.portoproject.portoboatsms.domain.exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco">
+  <component name="RunManager" selected="JUnit.PessoaDomainServiceTest.deveRetornarRunTimeExceptionQuandoNaoObeterPorId">
     <configuration name="Porto-back-end" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Java/jdk-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -72,6 +72,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PessoaDomainServiceTest.deveRetornarRunTimeExceptionQuandoNaoObeterPorId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="porto-boats-ms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.portoproject.portoboatsms.domain.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.portoproject.portoboatsms.domain.services" />
+      <option name="MAIN_CLASS_NAME" value="com.portoproject.portoboatsms.domain.services.PessoaDomainServiceTest" />
+      <option name="METHOD_NAME" value="deveRetornarRunTimeExceptionQuandoNaoObeterPorId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="porto-boats-ms" />
       <extension name="coverage">
@@ -88,14 +104,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PessoaDomainServiceTest.deveRetornarUmaPessoaResponseQuandoObeterPorId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="porto-boats-ms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.portoproject.portoboatsms.domain.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.portoproject.portoboatsms.domain.services" />
+      <option name="MAIN_CLASS_NAME" value="com.portoproject.portoboatsms.domain.services.PessoaDomainServiceTest" />
+      <option name="METHOD_NAME" value="deveRetornarUmaPessoaResponseQuandoObeterPorId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Porto-back-end" />
       <item itemvalue="JUnit.PessoaDomainServiceTest" />
+      <item itemvalue="JUnit.PessoaDomainServiceTest.deveRetornarRunTimeExceptionQuandoNaoObeterPorId" />
       <item itemvalue="JUnit.PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco" />
+      <item itemvalue="JUnit.PessoaDomainServiceTest.deveRetornarUmaPessoaResponseQuandoObeterPorId" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PessoaDomainServiceTest.deveRetornarRunTimeExceptionQuandoNaoObeterPorId" />
         <item itemvalue="JUnit.PessoaDomainServiceTest.deveRetornarUmaListaComTodasAsPessoasQuandoEssasPessoasEstiveremSalvasNoBanco" />
+        <item itemvalue="JUnit.PessoaDomainServiceTest.deveRetornarUmaPessoaResponseQuandoObeterPorId" />
       </list>
     </recent_temporary>
   </component>
@@ -128,8 +164,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="1" />
+          <line>168</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/portoproject/portoboatsms/domain/services/PessoaDomainServiceTest.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

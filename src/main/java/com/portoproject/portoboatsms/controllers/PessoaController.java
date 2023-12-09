@@ -20,14 +20,25 @@ public class PessoaController {
     }
 
     @GetMapping("/listAllPeople")
-    public ResponseEntity<List<PessoaObterResponse>> getAllPeopleList(){
+    public ResponseEntity<List<PessoaObterResponse>> obeterTodasAsPessoas(){
         List<PessoaObterResponse> listAll =pessoaDomainService.obterTodasAsPeSssoas();
         return ResponseEntity.ok(listAll);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<PessoaObterResponse> obterPeloId(String id){
+        PessoaObterResponse obterResponse =pessoaDomainService.obterPorId(id);
+        return ResponseEntity.ok(obterResponse);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public PessoaObterResponse createPessoa(@RequestBody PessoaSalvarRequest pessoaSalvarRequest) {
         return pessoaDomainService.salvar(pessoaSalvarRequest);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarPessoaPorId(@PathVariable String id){
+        pessoaDomainService.deletar(id);
     }
 }

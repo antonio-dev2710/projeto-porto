@@ -73,13 +73,16 @@ public class PessoaDomainService implements PessoaService {
 
     @Override
     public PessoaObterResponse obterPorId(String id) {
-        // TODO Auto-generated method stub
-        return null;
+        Pessoa pessoa = pessoaRepository.customAcharPorId(id);
+        if (pessoa.getId()==null){
+            throw new PessoaNaoEncontradaExcpetion();
+        }
+        return PessoaObterResponse.from(pessoa);
     }
 
     @Override
     public PessoaObterResponse atualizar(PessoaAtualizarRequest pessoaAtualizarRequest) {
-        // TODO Auto-generated method stub
+        // TODO: poderiamos deixaar em primeiro momento como update
         return null;
     }
 
@@ -90,7 +93,8 @@ public class PessoaDomainService implements PessoaService {
             throw new PessoaNaoEncontradaExcpetion();
         }
         pessoa.setAtivo(false);
-        //continuar ...
+        pessoaRepository.save(pessoa);
+
         return PessoaObterResponse.from(pessoa);
     }
 

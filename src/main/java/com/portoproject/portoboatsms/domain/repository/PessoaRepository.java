@@ -12,7 +12,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, String> {
 
     Boolean existsByCpf(String cpf);
     //vou fzr uma query constumizada
-    @Query("SLECT p from Pessoa p Where p.id = :id")
+    @Query("SLECT p from Pessoa p Where p.id = :id AND p.ativo= true")
     Pessoa customAcharPorId(@Param("id") String id);
 
 }
